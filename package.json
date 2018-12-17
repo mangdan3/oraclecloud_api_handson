@@ -1,0 +1,21 @@
+{
+  "name": "dredd-example",
+  "nicename": "Dredd Example",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Example application using Dredd and CI",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:apiaryio/dredd-example.git"
+  },
+  "author": "Dan",
+  "scripts": {
+    "start": "node app.js",
+    "test:apiblueprint": "dredd --config=dredd.yml",
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dredd": "5.3.2",
+    "express": "4.15.5",
+  }
+}

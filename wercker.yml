@@ -1,15 +1,4 @@
 box: node
 build:
   steps:
-    - script:
-        name: install-npm
-        code: sudo npm install
-    - script:
-        name: install-expressjs
-        code: sudo npm install express@4.15.5 --ignore-scripts --no-optional --global
-    - script:
-        name: install-dredd
-        code: sudo npm install dredd@5.3.2 --ignore-scripts --no-optional --global
-    - script:
-        name: dredd
-        code: dredd
+    - npm-install
