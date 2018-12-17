@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  dredd:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run: npm install dredd@5.3.2 --no-optional --global
+      - run: dredd
