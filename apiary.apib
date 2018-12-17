@@ -1,0 +1,115 @@
+FORMAT: 1A
+HOST: https://test.api.com
+
+# DAN'S DEMO API
+
+# Group JSON Type API
+This is the JSON test api.
+
+## Person Collections [/users]
+
+### Get all persons [GET /users]
++ Request
+    + Headers
+    
+            Authorization: Basic ABC123
+    
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "Users": [
+                {
+                    "id": 123,
+                    "name": "Christian"
+                }
+            ]
+        }
+
+### Get a person [GET /users/{id}{?include}]
++ parameters
+    + id : 1 (number, required)
+    + include : metadata (string, optional)
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": 1,
+            "name": "Dan"
+        }
+
++ Response 404 (application/json; charset=utf-8)
+
+        {
+            "status" : "not found"
+            
+        }
+
+### Put a person [PUT /users]
++ request
+    + Headers
+    
+            Authorization: Basic ABC123
+            
+    + Body
+
+            {
+                "id": 123,
+                "name": "Christian"
+            }
+        
++ response 200 (application/json; charset=utf-8)
+
+        {
+            "status": "success"
+        }
+
+
+### POST a person [POST /users] 
++ request
+    + Headers
+    
+            Authorization: Basic ABC123
+            
+    + Body
+
+            {
+                "id": 123,
+                "name": "Christian"
+            }
+        
++ response 201
+
+# Group MSON Type API
+This is the MSON test API.
+
+## Group Collections [/groups]
+
+### Group Collections [GET /groups]
++ Response 200 (application/json; charset=utf-8)
+    + Attributes
+        + Groups (array[Group])
+
+### Get a Group [GET /groups/{id}]
++ Parameters
+    + id: 1 (number, required)
+    
++ Response 200 (application/json; charset=utf-8)
+    + Attributes
+        + Groups (array[Group])
+
+
+# Data Structures
+
+## Metadata (object)
+- created : 2018 (string, optional)
+- owner: Dan (string, optional)
+
+## User (object)
+- userid: 1 (string, required) - This is id of the user
+- username: Dan (string, required) - This is name of the user
+
+## Group (object)
+- Include Metadata
+- groupid: 1 (string, required) - This is id of the group
+- groupname: group (string, required) - This is name of the group name
+- Users: User (array[User], required) - This is members of the group
