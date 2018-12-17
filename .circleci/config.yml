@@ -1,9 +1,9 @@
 version: 2
 jobs:
-  dredd:
+  build:
     docker:
-      - image: 'circleci/node:latest'
+      - image: circleci/node:latest
     steps:
       - checkout
       - run: npm install dredd@5.3.2 --no-optional --global
-      - run: dredd
+      - run: dredd apiary.apib http://localhost:3000
