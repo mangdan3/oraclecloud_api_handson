@@ -1,0 +1,9 @@
+box: node
+build:
+  steps:
+    - script:
+        name: install-dredd
+        code: sudo npm install dredd@5.3.2 --no-optional --global
+    - script:
+        name: dredd
+        code: dredd
