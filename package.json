@@ -11,6 +11,7 @@
   "author": "Dan",
   "scripts": {
     "start": "node app.js",
+    "test": "npm run test:apiblueprint",
     "test:apiblueprint": "dredd --config=dredd.yml"
   },
   "license": "MIT",
