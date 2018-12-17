@@ -2,6 +2,9 @@ box: node
 build:
   steps:
     - script:
+        name: install-npm
+        code: sudo npm install
+    - script:
         name: install-expressjs
         code: sudo npm install express@4.15.5 --ignore-scripts --no-optional --global
     - script:
