@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: install-expressjs
-        code: sudo npm install express@6.5.0 --ignore-scripts --no-optional --global
+        code: sudo npm install express@4.15.5 --ignore-scripts --no-optional --global
     - script:
         name: install-dredd
         code: sudo npm install dredd@5.3.2 --ignore-scripts --no-optional --global
