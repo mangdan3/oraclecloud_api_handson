@@ -57,12 +57,27 @@ This is the JSON test api.
                 "name": "Christian"
             }
         
-+ response 201 (application/json; charset=utf-8)
++ response 200 (application/json; charset=utf-8)
 
         {
             "status": "success"
         }
 
+### Post a person [POST /users]
++ request
+    + Headers
+    
+            Authorization: Basic ABC123
+            
+    + Body
+
+            {
+                "id": 123,
+                "name": "Christian"
+            }
+        
++ response 201
+        
 # Group MSON Type API
 This is the MSON test API.
 
