@@ -1,99 +1,65 @@
 FORMAT: 1A
-HOST: https://test.api.com
+HOST: http://polls.apiblueprint.org/
 
-# DAN'S DEMO API
+# Movie API
 
-# Group JSON Type API
-This is the JSON test api.
+영화 정보를 제공하는 API 입니다.
 
-## Person Collections [/users]
+# Group Movie
 
-### Get all persons [GET /users]
-+ Request
-    + Headers
-    
-            Authorization: Basic ABC123
-    
-+ Response 200 (application/json; charset=utf-8)
+## Movie Collection [/movies]
 
-        {
-            "Users": [
-                {
-                    "id": 123,
-                    "name": "Christian"
-                }
-            ]
-        }
+### All Movies [GET /movies]
 
-### Get a person [GET /users/{id}{?include}]
-+ parameters
-    + id : 1 (number, required)
-    + include : metadata (string, optional)
++ Response 200 (application/json)
 
-+ Response 200 (application/json; charset=utf-8)
-
-        {
-            "id": 1,
-            "name": "Dan"
-        }
-
-+ Response 404 (application/json; charset=utf-8)
-
-        {
-            "status" : "not found"
-            
-        }
-
-### Put a person [PUT /users]
-+ request
-    + Headers
-    
-            Authorization: Basic ABC123
-            
-    + Body
-
+        [
             {
-                "id": 123,
-                "name": "Christian"
+                "id": "m1",
+                "title": "The Graduate",
+                "year": "1967",
+                "genre": "Comedy"
+            },
+            {
+                "id": "m1",
+                "title": "The Graduate",
+                "year": "1967",
+                "genre": "Comedy"
             }
-        
-+ response 201 (application/json; charset=utf-8)
+        ]
 
-        {
-            "status": "success"
-        }
-
-# Group MSON Type API
-This is the MSON test API.
-
-## Group Collections [/groups]
-
-### Group Collections [GET /groups]
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes
-        + Groups (array[Group])
-
-### Get a Group [GET /groups/{id}]
+### Movie [GET /movies/{id}]
 + Parameters
-    + id: 1 (number, required)
+    - id : m1 (string, required)
     
-+ Response 200 (application/json; charset=utf-8)
++ Request
+    + Header
+            
+            Authorization : Basic AAA
+
++ Response 200 (application/json)
     + Attributes
-        + Groups (array[Group])
+        - id : m1
+        - title : The Graduate
+        - year : 2016
+        - genre : Comedy, Action
+        - Include MovieDetail
+        - cast (array[Cast])
+
+# Group Movie Anlaytics
 
 
-# Data Structures
 
-## Metadata (object)
-- created : 2018 (string, optional)
-- owner: Dan (string, optional)
+# Data Structure
 
-## User (object)
-- userid: 1 (string, required) - This is id of the user
-- username: Dan (string, required) - This is name of the user
+## Cast (object)
+- name : test (string, required)
+- characterName : test
+- birthday : 1970-01-01
 
-## Group (object)
-- Include Metadata
-- groupid: 1 (string, required) - This is id of the group
-- groupname: group (string, required) - This is name of the group name
-- Users: User (array[User], required) - This is members of the group
+## MovieDetail (object)
+- rating : 10
+- releaseDate : 1980-01-01
+- runtime : 100 min
+- writers : writer1
+- director : 111
