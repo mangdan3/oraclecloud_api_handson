@@ -3,34 +3,36 @@ HOST: http://polls.apiblueprint.org/
 
 # Movie API
 
-영화 정보를 제공하는 API 입니다. 수정
+영화 정보를 제공하는 API 입니다.
 
-# Group Movie
+## Movies Collection [/movies]
 
-## Movie Collection [/movies]
-
-### All Movies [GET /movies]
+### List All Movies [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "id": "m1",
-                "title": "The Graduate",
-                "year": "1967",
-                "genre": "Comedy"
+                "id": "19995",
+                "title": "Avatar",
+                "year": "2009",
+                "runtime" : 100
             },
             {
-                "id": "m1",
-                "title": "The Graduate",
-                "year": "1967",
-                "genre": "Comedy"
+                "id": "2699",
+                "title": "Titanic",
+                "year": "1997",
+                "runtime" :194
             }
         ]
 
-### Movie [GET /movies/{id}]
+### Get a Movie [GET /movies/{id}?{title}]
+
+Movie ID와 Title로 조회하는 API 입니다.
+
 + Parameters
-    - id : m1 (string, required)
+    - id : 19995 (string, required)
+    - title : Avatar (string, optional)
     
 + Request
     + Header
@@ -39,27 +41,26 @@ HOST: http://polls.apiblueprint.org/
 
 + Response 200 (application/json)
     + Attributes
-        - id : m1
-        - title : The Graduate
-        - year : 2016
-        - genre : Comedy, Action
+        - id : 2699
+        - title : Titanic
+        - year : 1997
+        - runtime : 194
         - Include MovieDetail
-        - cast (array[Cast])
-
-# Group Movie Anlaytics
+        - genres (array[Genres])
 
 
 
 # Data Structure
 
-## Cast (object)
-- name : test (string, required)
-- characterName : test
-- birthday : 1970-01-01
-
 ## MovieDetail (object)
-- rating : 10
-- releaseDate : 1980-01-01
-- runtime : 100 min
-- writers : writer1
-- director : 111
+- overview : In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.
+- releaseDate : 2009.12.10
+- status : Released
+- homepage : http://www.titanicmovie.com
+- vote_average : 7.2
+- vote_count : 12114
+
+
+## Genres (object)
+- id : 18 (number, required)
+- name : Drama (string, required)
