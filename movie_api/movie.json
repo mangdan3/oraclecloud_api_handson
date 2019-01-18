@@ -1,0 +1,22 @@
+{
+    "id": "2699",
+    "title": "Titanic",
+    "year": "1997",
+    "runtime": "194",
+    "overview": "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
+    "releaseDate": "2009.12.10",
+    "status": "Released",
+    "homepage": "http://www.titanicmovie.com",
+    "vote_average": "7.2",
+    "vote_count": "12114",
+    "genres": [{
+        "id": 28,
+        "name": "Action"
+    }, {
+        "id": 18,
+        "name": "Drama"
+    }, {
+        "id": 10749,
+        "name": "Romance"
+    }]
+}
