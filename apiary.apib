@@ -3,64 +3,78 @@ HOST: http://polls.apiblueprint.org/
 
 # Movie API
 
-영화 정보를 제공하는 API 입니다.
+Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Movies Collection [/movies]
+## Questions Collection [/questions]
 
-### List All Movies [GET]
+### List All Questions [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "id": "19995",
-                "title": "Avatar",
-                "release_date": "2009",
-                "runtime" : 100
-            },
-            {
-                "id": "2699",
-                "title": "Titanic",
-                "release_date": "1997",
-                "runtime" :194
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
             }
         ]
 
-### Get a Movie [GET /movies/{id}?{title}]
+### Create a New Question [POST]
 
-Movie ID와 Title로 조회하는 API 입니다.
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
 
-+ Parameters
-    - id : 19995 (string, required)
-    - title : Avatar (string, optional)
-    
-+ Request
-    + Header
-            
-            Authorization : Basic AAA
++ Request (application/json)
 
-+ Response 200 (application/json)
-    + Attributes
-        - id : 2699
-        - title : Titanic
-        - year : 1997
-        - runtime : 194
-        - Include MovieDetail
-        - genres (array[Genres])
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
 
++ Response 201 (application/json)
 
+    + Headers
 
-# Data Structure
+            Location: /questions/2
 
-## MovieDetail (object)
-- overview : In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.
-- releaseDate : 2009.12.10
-- status : Released
-- homepage : http://www.titanicmovie.com
-- vote_average : 7.2
-- vote_count : 12114
+    + Body
 
-
-## Genres (object)
-- id : 18 (number, required)
-- name : Drama (string, required)
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
